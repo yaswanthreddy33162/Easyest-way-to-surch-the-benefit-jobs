@@ -1,0 +1,17 @@
+/* Admin, Student, Recruiter Page Styling */
+header {
+    background-color: #4CAF50; /* Green color for admin/student/recruiter pages */
+}
+
+main h2 {
+    color: #4CAF50;
+}
+
+nav ul li a {
+    font-weight: bold;
+}
+
+main p {
+    font-size: 18px;
+    color: #555;
+}

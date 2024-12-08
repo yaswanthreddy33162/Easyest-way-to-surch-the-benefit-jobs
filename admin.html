@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd; /* Light blue background */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: #0d47a1; /* Dark blue color */
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            float: right;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #1976d2;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            width: 80%;
+            height: 70vh;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .logo-section {
+            width: 40%;
+            background-color: #e3f2fd;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid #ddd;
+        }
+
+        .logo-section img {
+            width: 150px;
+            height: auto;
+        }
+
+        .login-section {
+            width: 60%;
+            padding: 40px;
+        }
+
+        .login-section h2 {
+            text-align: center;
+            color: #0d47a1;
+            margin-bottom: 30px;
+        }
+
+        .login-section label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .login-section input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .login-section button {
+            width: 100%;
+            padding: 14px;
+            color: white;
+            background-color: #0d47a1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .login-section button:hover {
+            background-color: #1976d2;
+        }
+
+        .login-section .error {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+    </div>
+
+    <!-- Main Container for Layout -->
+    <div class="container">
+        <!-- Left Section: Admin Logo -->
+        <div class="logo-section">
+            <img src="3.png" alt="Admin Logo">
+        </div>
+
+        <!-- Right Section: Login Form -->
+        <div class="login-section">
+            <h2>Admin Login</h2>
+            <!-- Link to the admin dashboard on form submission -->
+            <form action="admin-dashboard.html" method="POST">
+                <label for="admin-id">Admin ID:</label>
+                <input type="text" id="admin-id" name="admin-id" placeholder="Enter your Admin ID" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+
+                <button type="submit">Sign In</button>
+
+                <!-- Error message placeholder (optional) -->
+                <div class="error" id="error-message"></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
