@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Career fairs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #B5E2FA; /* Light blue background */
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #ffffff; /* Dark blue color */
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+
+        .navbar-logo {
+            float: left;
+            display: block;
+            color: rgb(27, 24, 24);
+            font-size: 22px;
+            font-weight: bold;
+            padding: 14px 20px;
+        }
+
+        .navbar a {
+            float: right;
+            display: block;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ccc7c7; /* Slightly lighter blue on hover */
+        }
+
+        /* Layout for Content and Role Selection */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 30px auto;
+            padding: 40px;
+            width: 80%;
+            background: rgb(247, 240, 240);
+            border: 1px solid #f3ecec;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for a sleek look */
+        }
+
+        /* Content Section Styling */
+        .content {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .content h1 {
+            margin-top: 0;
+            color: #0d47a1;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Right Role Selection Styling */
+        .role-selection {
+            width: 30%;
+            padding: 20px;
+            background-color: #b3e5fc; /* Light blue for selection box */
+            border-radius: 10px;
+            text-align: center;
+            margin-left: 20px; /* Moved to the right */
+        }
+
+        .role-selection h2 {
+            margin-bottom: 20px;
+            color: #0d47a1;
+        }
+
+        .role-selection button {
+            display: block;
+            width: 80%;
+            padding: 15px;
+            margin: 15px auto;
+            font-size: 18px;
+            color: #333;
+            background-color: #80deea; /* Button color matching the example */
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .role-selection button:hover {
+            background-color: #4dd0e1; /* Slightly darker blue on hover */
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #0d47a1;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .contact-info {
+            margin: 20px 0;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+    <script>
+        function handleRoleSelection(role) {
+            if (role === 'Student') {
+                window.location.href = 'student.html';
+            } else if (role === 'Recruiter') {
+                window.location.href = 'recruiter.html';
+            } else if (role === 'Admin') {
+                window.location.href = 'admin.html';
+            } else {
+                alert('Please select a valid role');
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="navbar-logo">Virtual Career Fairs And Networking Events</div>
+        <a href="#contact">Contact Us</a>
+        <a href="#about">About Us</a>
+        <a href="#home">Home</a>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Text Section -->
+        <div class="content">
+            <div class="text-section">
+                <h1>Virtual career fairs and networking events</h1>
+                <p>
+                    The primary goal of a virtual career fair and networking event platform is to connect job seekers with employers, facilitate networking opportunities, and make job searching and recruitment easy and interactive. 
+                </p>
+                <p>
+                    The platform should replicate the experience of in-person job fairs and make it possible for users to interact remotely.
+                </p>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3>Contact Us</h3>
+                    <p>Lohith Networking Events</p>
+                    <p>Address: 123 Main Street, City, State, 12345</p>
+                    <p>Email: networkingevents@lohith.edu</p>
+                    <p>Phone: +1 234 567 890</p>
+                    <p>Office Hours: Monday to Friday, 9 AM - 5 PM</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side Role Selection -->
+        <div class="role-selection">
+            <h2>Select Your Role</h2>
+            <button onclick="handleRoleSelection('Student')">Student</button>
+            <button onclick="handleRoleSelection('Recruiter')">Recruiter</button>
+            <button onclick="handleRoleSelection('Admin')">Admin</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <p>© 2024 ABC Networking Company. All rights reserved. Contact us at: networkingevents@lohith.edu</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-color: #e3f2fd;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #0d47a1;
+            color: white;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #1976d2;
+            border-radius: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            margin-top: 70px;
+            padding: 40px;
+        }
+
+        .main-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-content h2 {
+            color: #0d47a1;
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0d47a1;
+            color: white;
+        }
+
+        td button {
+            background-color: #0d47a1;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        td button:hover {
+            background-color: #1976d2;
+        }
+
+        /* Media query for smaller screens */
+        @media only screen and (max-width: 768px) {
+            .navbar a {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="3.png" alt="Admin Logo">
+            <h2>Admin Dashboard</h2>
+        </div>
+        
+        <div class="nav-links">
+            <!-- New Home Link -->
+            <a href="index.html">Home</a>
+            <a href="#manage-students">Manage Students</a>
+            <a href="#manage-recruiters">Manage Recruiters</a>
+            <a href="#manage-postings">Manage Job Postings</a>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Manage Students Section -->
+            <section id="manage-students" class="table-container">
+                <h2>Manage Students</h2>
+                <table id="students-table">
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Email</th>
+                        <th>Batch</th>
+                        <th>Department</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>2022-2026</td>
+                        <td>Computer Science</td>
+                        <td><button onclick="removeStudent('John Doe')">Remove</button></td>
+                    </tr>
+                    <!-- More student rows can be added here -->
+                </table>
+            </section>
+
+            <!-- Manage Recruiters Section -->
+            <section id="manage-recruiters" class="table-container">
+                <h2>Manage Recruiters</h2>
+                <table id="recruiters-table">
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Email</th>
+                        <th>Location</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>ABC Tech</td>
+                        <td>recruiter@abctech.com</td>
+                        <td>San Francisco</td>
+                        <td><button onclick="removeRecruiter('ABC Tech')">Remove</button></td>
+                    </tr>
+                    <!-- More recruiter rows can be added here -->
+                </table>
+            </section>
+
+            <!-- Manage Job Postings Section -->
+            <section id="manage-postings" class="table-container">
+                <h2>Manage Job Postings</h2>
+                <table id="postings-table">
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Company</th>
+                        <th>Location</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>Software Engineer</td>
+                        <td>ABC Tech</td>
+                        <td>San Francisco</td>
+                        <td><button onclick="removePosting('Software Engineer')">Remove</button></td>
+                    </tr>
+                    <!-- More job posting rows can be added here -->
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript functions for handling remove actions
+        function removeStudent(studentName) {
+            alert('Student ' + studentName + ' has been removed.');
+        }
+
+        function removeRecruiter(companyName) {
+            alert('Recruiter ' + companyName + ' has been removed.');
+        }
+
+        function removePosting(jobTitle) {
+            alert('Job posting for ' + jobTitle + ' has been removed.');
+        }
+    </script>
+</body>
+</html>

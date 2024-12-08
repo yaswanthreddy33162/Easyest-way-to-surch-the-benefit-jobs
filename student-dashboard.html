@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-color: #e3f2fd; /* Light blue background */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            width: 100%;
+            background-color: #0d47a1; /* Dark blue */
+            color: white;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #1976d2;
+            border-radius: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+        }
+
+        .container {
+            margin-top: 70px; /* Space for fixed navbar */
+            padding: 40px;
+        }
+
+        .main-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(78, 72, 72, 0.2);
+        }
+
+        .main-content h2 {
+            color: #0d47a1;
+            margin-bottom: 20px;
+        }
+
+        .info-card {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-card h3 {
+            color: #0d47a1;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+        /* Table styling for openings and jobs applied */
+        .table-container {
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0d47a1;
+            color: white;
+        }
+
+        td button {
+            background-color: #0d47a1;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        td button:hover {
+            background-color: #1976d2;
+        }
+
+        /* Styling for input form */
+        .input-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-form label {
+            margin: 10px 0 5px;
+            color: #0d47a1;
+        }
+
+        .input-form input, .input-form select, .input-form textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .input-form input[type="file"] {
+            padding: 5px;
+        }
+
+        .input-form input[type="submit"] {
+            background-color: #0d47a1;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .input-form input[type="submit"]:hover {
+            background-color: #1976d2;
+        }
+
+        /* Popup modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content button {
+            margin-top: 20px;
+            background-color: #0d47a1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background-color: #1976d2;
+        }
+
+        /* Media query for smaller screens */
+        @media only screen and (max-width: 768px) {
+            .navbar a {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="file-YKLfPpIOt1cgDM8dWBHXNJld" alt="Placement Portal Logo">
+            <h2>Placement Portal</h2>
+        </div>
+        
+        <div class="nav-links">
+            <a href="index.html">Home</a> <!-- Home Button -->
+            <a href="#student-info">Student Info</a>
+            <a href="#openings">Openings</a>
+            <a href="#jobs-applied">Jobs Applied</a>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Student Info Section -->
+            <section id="student-info" class="info-card">
+                <h2>Upload Student Information</h2>
+                <form class="input-form" action="#" method="post" enctype="multipart/form-data">
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="batch">Batch:</label>
+                    <input type="text" id="batch" name="batch" placeholder="e.g., 2022-2026" required>
+
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" name="department" placeholder="e.g., Computer Science" required>
+
+                    <label for="skills">Skills:</label>
+                    <textarea id="skills" name="skills" placeholder="Enter your skills (e.g., Java, Python, Web Development)" rows="3" required></textarea>
+
+                    <label for="resume">Upload Resume (PDF only):</label>
+                    <input type="file" id="resume" name="resume" accept="application/pdf" required>
+
+                    <input type="submit" value="Submit Information">
+                </form>
+            </section>
+
+            <section id="openings" class="info-card table-container">
+                <h2>Available Openings</h2>
+                <table id="openings-table">
+                    <tr>
+                        <th>Company</th>
+                        <th>Position</th>
+                        <th>Location</th>
+                        <th>Apply By</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>ABC Corp</td>
+                        <td>Software Engineer</td>
+                        <td>Bangalore</td>
+                        <td>15th Oct 2024</td>
+                        <td><button onclick="applyForJob('ABC Corp', 'Software Engineer')">Apply</button></td>
+                    </tr>
+                    <tr>
+                        <td>XYZ Solutions</td>
+                        <td>Data Analyst</td>
+                        <td>Pune</td>
+                        <td>20th Oct 2024</td>
+                        <td><button onclick="applyForJob('XYZ Solutions', 'Data Analyst')">Apply</button></td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Jobs Applied Section -->
+            <section id="jobs-applied" class="info-card table-container">
+                <h2>Jobs Applied</h2>
+                <table id="jobs-applied-table">
+                    <tr>
+                        <th>Company</th>
+                        <th>Position</th>
+                        <th>Status</th>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </div>
+
+    <!-- Popup Modal for Apply Confirmation -->
+    <div id="applyModal" class="modal">
+        <div class="modal-content">
+            <h3 id="applyModalMessage"></h3>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Handling Apply Button and Modal -->
+    <script>
+        function applyForJob(company, position) {
+            // Show confirmation popup
+            const modal = document.getElementById('applyModal');
+            const message = document.getElementById('applyModalMessage');
+            message.innerText = `You have applied for ${company} - ${position}.`;
+            modal.style.display = 'flex';
+
+            // Add the job to the "Jobs Applied" table
+            const jobsAppliedTable = document.getElementById('jobs-applied-table');
+            const newRow = jobsAppliedTable.insertRow();
+            newRow.insertCell(0).innerText = company;
+            newRow.insertCell(1).innerText = position;
+            newRow.insertCell(2).innerText = 'Under Review'; // Default status
+        }
+
+        // Close the modal popup
+        function closeModal() {
+            const modal = document.getElementById('applyModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('applyModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
+
